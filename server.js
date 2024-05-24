@@ -12,7 +12,8 @@ const upload = multer()
 //use cors
 let cors=require('cors')
 let corspolicy={origin:process.env.FRONTENDURI}
-app.use(cors())
+// app.use(cors())
+app.use(cors(corspolicy));
 
 //Parse the JSON data
 app.use(express.json())
@@ -21,8 +22,8 @@ app.use(express.json())
 const db = module.exports =async ()=>{
   try{
     await mongoose.connect(process.env.MONGODBURL, {  
-      user: process.env.DBUSERNAME,
-      pass:   process.env.DBPASSWORD
+      // user: process.env.DBUSERNAME,
+      // pass:   process.env.DBPASSWORD
     })
     console.log("MongoDB Connection is Successful")
   } catch(error){
